@@ -8,7 +8,7 @@ export const MatchDetailCard = ({ teamName, match }) => {
     return (
         <div className="MatchDetailCard">
             <h3>Latest Matches</h3>
-            <h3>vs <Link to={otherTeamRoute}>{otherTeam}</Link></h3>
+            <h2>vs <Link to={otherTeamRoute}>{otherTeam}</Link></h2>
             <h3>{match.date}</h3>
             <h4>at {match.venue}</h4>
             <h4>{match.matchWinner} won by {match.resultMargin} {match.result}</h4>
