@@ -1,13 +1,27 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Prata', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-image: url("/Users/adnanafzal/Downloads/BigBashMatches/src/main/resources/360_F_442896172_ycT45J3zr3xiw0Y9GfGVhXOm5aZnrj6s.jpeg"); */
+  background-color: #13131b;
+  color: #fcfbfa;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+a {
+  color: rgb(4, 91, 167);
 }

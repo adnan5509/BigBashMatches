@@ -2,6 +2,10 @@ import { React, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { MatchDetailCard } from '../components/MatchDetailCard';
 import { MatchSmallCard } from '../components/MatchSmallCard';
+import { PieChart } from 'react-minimal-pie-chart';
+
+
+import "./TeamPage.scss"
 
 export const TeamPage = () => {
 
@@ -19,14 +23,35 @@ export const TeamPage = () => {
 
         }, [teamName]
     );
-    if(!team.teamName || !team){
+    if (!team.teamName || !team) {
         return <h1>Team Not Found</h1>
     }
     return (
         <div className="TeamPage">
-            <h1>{team.teamName}</h1>
-            <MatchDetailCard teamName={team.teamName} match={team.teamMatches[0]} />
-            {team.teamMatches.slice(1).map(match => <MatchSmallCard teamName={team.teamName} match={match} />)}
+            <div className='team-name-section'>
+                <h1 className='team-name'>
+                    {team.teamName}
+                </h1>
+            </div>
+            <div className='win-loss-section'>
+                Wins/losses
+                <PieChart
+                    data={[
+                        { title: 'Losses', value: team.totalMatches - team.totalWins, color: '#a34d5d' },
+                        { title: 'Wins', value: team.totalWins, color: '#4da375' },
+                    ]}
+                />
+            </div>
+            <div className='match-detail-section'>
+                <h3>Latest Matches</h3>
+                <MatchDetailCard teamName={team.teamName} match={team.teamMatches[0]} />
+            </div>
+            {
+                team.teamMatches.slice(1).map(match => <MatchSmallCard teamName={team.teamName} match={match} />)
+            }
+            <div className='more-link'>
+                <a href='#'>More {'>'}</a>
+            </div>
         </div>
     );
 }
