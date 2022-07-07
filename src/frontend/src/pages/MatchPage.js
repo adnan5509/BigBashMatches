@@ -21,9 +21,8 @@ export const MatchPage = () => {
     useEffect(
         () => {
             const fetchMatches = async () => {
-                const response = await fetch(`http://localhost:8081/bbl/team/${team}/matches?year=${date}`);
+                const response = await fetch(`${process.env.REACT_APP_ROOT_API_URL}/bbl/team/${team}/matches?year=${date}`);
                 const data = await response.json();
-                console.log(data);
                 setMatch(data);
             };
             fetchMatches();
@@ -38,7 +37,7 @@ export const MatchPage = () => {
                 <MatchesYearSelector teamName={teamName} setDateCallback={setDateCallback} dateYear={date} />
                 <h2 className='team-matches-name'>{teamName} Matches in {date}</h2>
                 {
-                    match.map(match => <MatchDetailCard teamName={teamName} match={match} />)
+                    match.map(match => <MatchDetailCard key={match.id} teamName={teamName} match={match} />)
                 }
             </div>
         </div>
