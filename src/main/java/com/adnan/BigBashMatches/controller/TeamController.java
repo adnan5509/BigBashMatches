@@ -42,9 +42,16 @@ public class TeamController {
 
         LocalDate startDate = LocalDate.of(year, 1, 1);
         LocalDate endDate = LocalDate.of(year + 1, 1, 1);
-        // return matchRepository.findByTeam1AndDateBetweenOrTeam2AndDateBetweenOrderByDateDesc(teamName,startDate,endDate,teamName,startDate,endDate);
+        // return
+        // matchRepository.findByTeam1AndDateBetweenOrTeam2AndDateBetweenOrderByDateDesc(teamName,startDate,endDate,teamName,startDate,endDate);
 
-        return matchRepository.getTeamMatchesByYear(teamName,startDate,endDate);
+        return matchRepository.getTeamMatchesByYear(teamName, startDate, endDate);
 
     }
+
+    @GetMapping("/team")
+    public Iterable<Team> getAllTeams() {
+        return teamRepository.findAll();
+    }
+
 }
